@@ -1,0 +1,9 @@
+Stage,Category,Count,Share_Pct,Sort_Order
+1. Original Raw Dataset,Total Records,958524,1.0,1
+2. Unlabeled Excluded,Missing PHA Label,19921,0.020782995522282174,2
+3. Labeled Dataset,Retained Labeled,938603,0.9792170044777179,3
+4. Target Class,Non-PHA (0),936537,0.9977988563855006,4
+4. Target Class,PHA Positive (1),2066,0.002201143614499421,5
+5. Stratified Split,Train (70%),657022,0.7,6
+5. Stratified Split,Validation (15%),140790,0.15,7
+5. Stratified Split,Test (15%),140791,0.15,8

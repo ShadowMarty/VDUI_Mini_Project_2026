@@ -1,0 +1,14 @@
+Orbit_Class,Orbit_Class_Label,Total_Asteroids,PHA_Count,Non_PHA_Count,PHA_Rate,Is_NEO_Zone,Sort_Order
+MBA,MBA · Main Belt,837430,0,837430,0.0,Main / Outer Belt,1
+OMB,OMB · Outer Main Belt,27815,0,27815,0.0,Main / Outer Belt,2
+IMB,IMB · Inner Main Belt,19903,0,19903,0.0,Main / Outer Belt,3
+MCA,MCA · Mars-Crosser,18356,0,18356,0.0,Main / Outer Belt,4
+APO,APO · Apollo (NEO),12687,1768,10919,0.1393552455269173,Near-Earth (NEO),5
+AMO,AMO · Amor (NEO),8456,118,8338,0.013954588457899717,Near-Earth (NEO),6
+TJN,TJN · Jupiter Trojan,8160,0,8160,0.0,Main / Outer Belt,7
+TNO,TNO · Trans-Neptunian,3462,0,3462,0.0,Main / Outer Belt,8
+ATE,ATE · Aten (NEO),1729,174,1555,0.1006362058993638,Near-Earth (NEO),9
+CEN,CEN · Centaur,504,0,504,0.0,Main / Outer Belt,10
+AST,AST · Asteroid (Other),75,0,75,0.0,Main / Outer Belt,11
+IEO,IEO · Atira (NEO),22,6,16,0.2727272727272727,Near-Earth (NEO),12
+HYA,HYA · Hyperbolic,4,0,4,0.0,Main / Outer Belt,13

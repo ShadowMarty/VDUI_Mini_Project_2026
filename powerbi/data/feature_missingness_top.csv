@@ -1,0 +1,7 @@
+Feature,Missing_Count,Missing_Percentage,Missing_Share,Feature_Group,Feature_Description,Imputation_Note,Missing_Tier,Missing_Rank
+albedo,803500,85.60594841482501,0.8560594841482501,Physical,Geometric albedo,High missingness (~85.5%) — Median + Missing Indicator,High (~85.5%),1
+diameter_sigma,802522,85.5017510065491,0.855017510065491,Physical,Diameter uncertainty (km),High missingness (~85.5%) — Median + Missing Indicator,High (~85.5%),2
+diameter,802394,85.48811371794038,0.8548811371794038,Physical,Asteroid diameter (km),High missingness (~85.5%) — Median + Missing Indicator,High (~85.5%),3
+sigma_ad,5,0.0005327065862776,5.327065862776e-06,Uncertainty,Aphelion distance 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),4
+sigma_per,5,0.0005327065862776,5.327065862776e-06,Uncertainty,Orbital period 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),5
+ad,4,0.0004261652690221,4.261652690221e-06,Orbital,Aphelion distance (AU),Negligible missingness — Median Imputation,Negligible (<0.01%),6

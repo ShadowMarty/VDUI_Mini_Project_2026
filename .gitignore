@@ -1,0 +1,34 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Trained models
+models/
+*.joblib
+*.pkl
+
+# Dataset files
+dataset/*
+!dataset/.gitkeep
+
+# Generated output
+output/*
+!output/.gitkeep
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

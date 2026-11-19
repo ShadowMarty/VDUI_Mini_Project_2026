@@ -1,0 +1,25 @@
+Feature,Missing_Count,Missing_Percentage,Missing_Share,Feature_Group,Feature_Description,Imputation_Note,Missing_Tier,Missing_Rank
+albedo,803500,85.60594841482501,0.8560594841482501,Physical,Geometric albedo,High missingness (~85.5%) — Median + Missing Indicator,High (~85.5%),1
+diameter_sigma,802522,85.5017510065491,0.855017510065491,Physical,Diameter uncertainty (km),High missingness (~85.5%) — Median + Missing Indicator,High (~85.5%),2
+diameter,802394,85.48811371794038,0.8548811371794038,Physical,Asteroid diameter (km),High missingness (~85.5%) — Median + Missing Indicator,High (~85.5%),3
+sigma_ad,5,0.0005327065862776,5.327065862776e-06,Uncertainty,Aphelion distance 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),4
+sigma_per,5,0.0005327065862776,5.327065862776e-06,Uncertainty,Orbital period 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),5
+ad,4,0.0004261652690221,4.261652690221e-06,Orbital,Aphelion distance (AU),Negligible missingness — Median Imputation,Negligible (<0.01%),6
+per,4,0.0004261652690221,4.261652690221e-06,Orbital,Orbital period (days),Negligible missingness — Median Imputation,Negligible (<0.01%),7
+ma,1,0.0001065413172555,1.065413172555e-06,Orbital,Mean anomaly (deg),Negligible missingness — Median Imputation,Negligible (<0.01%),8
+per_y,1,0.0001065413172555,1.065413172555e-06,Orbital,Orbital period (years),Negligible missingness — Median Imputation,Negligible (<0.01%),9
+sigma_a,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Semi-major axis 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),10
+sigma_e,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Eccentricity 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),11
+sigma_i,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Inclination 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),12
+sigma_ma,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Mean anomaly 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),13
+sigma_n,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Mean motion 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),14
+sigma_om,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Ascending node 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),15
+sigma_q,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Perihelion distance 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),16
+sigma_w,1,0.0001065413172555,1.065413172555e-06,Uncertainty,Argument of perihelion 1-sigma uncertainty,Negligible missingness — Median Imputation,Negligible (<0.01%),17
+a,0,0.0,0.0,Orbital,Semi-major axis (AU),Negligible missingness — Median Imputation,Negligible (<0.01%),18
+e,0,0.0,0.0,Orbital,Orbital eccentricity,Negligible missingness — Median Imputation,Negligible (<0.01%),19
+i,0,0.0,0.0,Orbital,Orbital inclination (deg),Negligible missingness — Median Imputation,Negligible (<0.01%),20
+n,0,0.0,0.0,Orbital,Mean motion (deg/day),Negligible missingness — Median Imputation,Negligible (<0.01%),21
+om,0,0.0,0.0,Orbital,Longitude of ascending node (deg),Negligible missingness — Median Imputation,Negligible (<0.01%),22
+q,0,0.0,0.0,Orbital,Perihelion distance (AU),Negligible missingness — Median Imputation,Negligible (<0.01%),23
+w,0,0.0,0.0,Orbital,Argument of perihelion (deg),Negligible missingness — Median Imputation,Negligible (<0.01%),24

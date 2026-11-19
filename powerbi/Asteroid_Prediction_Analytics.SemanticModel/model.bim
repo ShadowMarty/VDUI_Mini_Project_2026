@@ -1,0 +1,1446 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Dataset_Profile\", \"Orbit_Class_Summary\", \"PHA_Orbit_Breakdown\", \"Asteroid_Catalog\", \"Model_Benchmark\", \"Threshold_Sweep\", \"Confidence_Distribution\", \"Feature_Missingness\", \"Feature_Missingness_Top\", \"SHAP_Global_Importance\", \"SHAP_Class_Comparison\", \"_Measures\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "f3cc5cd5-0356-47f6-a2a9-90cc70ea5b2e",
+        "fromColumn": "Orbit_Class",
+        "fromTable": "Asteroid_Catalog",
+        "toColumn": "Orbit_Class",
+        "toTable": "Orbit_Class_Summary"
+      },
+      {
+        "name": "1e59e1a7-f227-4bce-bf8b-1cca9aaa0802",
+        "fromColumn": "Orbit_Class",
+        "fromTable": "PHA_Orbit_Breakdown",
+        "toColumn": "Orbit_Class",
+        "toTable": "Orbit_Class_Summary"
+      },
+      {
+        "name": "b3e7b3a0-1bdb-4f50-8021-137a40eb9caf",
+        "fromColumn": "Model",
+        "fromTable": "Threshold_Sweep",
+        "toColumn": "Model",
+        "toTable": "Model_Benchmark"
+      },
+      {
+        "name": "b9e29886-b4be-429b-82f7-83012b50e3aa",
+        "fromColumn": "Model",
+        "fromTable": "Confidence_Distribution",
+        "toColumn": "Model",
+        "toTable": "Model_Benchmark"
+      },
+      {
+        "name": "b9d8231e-adf9-4204-b3d9-1d8cda75dcdb",
+        "fromColumn": "Feature",
+        "fromTable": "SHAP_Class_Comparison",
+        "toColumn": "Feature",
+        "toTable": "SHAP_Global_Importance"
+      }
+    ],
+    "sourceQueryCulture": "en-IN",
+    "tables": [
+      {
+        "name": "Dataset_Profile",
+        "columns": [
+          {
+            "name": "Stage",
+            "dataType": "string",
+            "lineageTag": "5f0ec2c0-e752-40cc-aa71-99cc7beff969",
+            "sourceColumn": "Stage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "lineageTag": "2258cb0d-08b6-40ef-bb75-8782c7d0154a",
+            "sortByColumn": "Sort_Order",
+            "sourceColumn": "Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "6d1165ae-9d54-4edf-a647-1504cd253fa2",
+            "sourceColumn": "Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Share_Pct",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "c7425955-c6b6-4ce3-b35d-7b3c3c502902",
+            "sourceColumn": "Share_Pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sort_Order",
+            "dataType": "int64",
+            "lineageTag": "9155e247-116d-4d4b-8953-597b3ae47117",
+            "sourceColumn": "Sort_Order",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "6ee91e3b-31af-43d2-ad82-8d9ee6b23da3",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\dataset_profile.csv\"),[Delimiter=\",\", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Stage\", type text}, {\"Category\", type text}, {\"Count\", Int64.Type}, {\"Share_Pct\", type number}, {\"Sort_Order\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orbit_Class_Summary",
+        "columns": [
+          {
+            "name": "Orbit_Class",
+            "dataType": "string",
+            "lineageTag": "17dc3ead-2611-45c3-926b-3633838fc3ca",
+            "sourceColumn": "Orbit_Class",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Orbit_Class_Label",
+            "dataType": "string",
+            "lineageTag": "adbefbcb-863f-424f-8690-30e1d088217c",
+            "sortByColumn": "Sort_Order",
+            "sourceColumn": "Orbit_Class_Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Total_Asteroids",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "748d050d-5788-44c9-887c-92094dc3e5d4",
+            "sourceColumn": "Total_Asteroids",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "PHA_Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "dd5524f5-770d-4779-b0d3-f10ac7cec81c",
+            "sourceColumn": "PHA_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Non_PHA_Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "0eaca74f-8325-471e-a4ab-38bd589ca0cb",
+            "sourceColumn": "Non_PHA_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "PHA_Rate",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "7fe6b874-0478-4c76-9ada-f971c520daff",
+            "sourceColumn": "PHA_Rate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Is_NEO_Zone",
+            "dataType": "string",
+            "lineageTag": "d2eda51a-27fe-4796-b9fe-0672b640932b",
+            "sourceColumn": "Is_NEO_Zone",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sort_Order",
+            "dataType": "int64",
+            "lineageTag": "f863ac34-48c6-45be-97b0-6f95dad9c4e5",
+            "sourceColumn": "Sort_Order",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "d3a11690-e5a9-4756-acf3-a46d1503f135",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\orbit_class_summary.csv\"),[Delimiter=\",\", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Orbit_Class\", type text}, {\"Orbit_Class_Label\", type text}, {\"Total_Asteroids\", Int64.Type}, {\"PHA_Count\", Int64.Type}, {\"Non_PHA_Count\", Int64.Type}, {\"PHA_Rate\", type number}, {\"Is_NEO_Zone\", type text}, {\"Sort_Order\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "PHA_Orbit_Breakdown",
+        "columns": [
+          {
+            "name": "Orbit_Class",
+            "dataType": "string",
+            "lineageTag": "eed82307-4dcd-4fc3-a85f-6dfb37d75e66",
+            "sourceColumn": "Orbit_Class",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Orbit_Class_Label",
+            "dataType": "string",
+            "lineageTag": "0b3efb74-3495-4b81-b045-8d5e99bbd937",
+            "sortByColumn": "Sort_Order",
+            "sourceColumn": "Orbit_Class_Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PHA_Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "2c030257-93e0-4fa4-8256-df4aa2fb96bd",
+            "sourceColumn": "PHA_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "PHA_Share",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "a61cb401-b3ad-49bf-b076-b48c8f37fa75",
+            "sourceColumn": "PHA_Share",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sort_Order",
+            "dataType": "int64",
+            "lineageTag": "9551822f-b405-45e6-912d-423f34ca9eb4",
+            "sourceColumn": "Sort_Order",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "13e54c0d-5a56-44e9-8f35-166aaf170931",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\pha_orbit_breakdown.csv\"),[Delimiter=\",\", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Orbit_Class\", type text}, {\"Orbit_Class_Label\", type text}, {\"PHA_Count\", Int64.Type}, {\"PHA_Share\", type number}, {\"Sort_Order\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Asteroid_Catalog",
+        "columns": [
+          {
+            "name": "Asteroid_ID",
+            "dataType": "string",
+            "lineageTag": "28e3a9f6-ff83-407e-bdf1-d4c855fd7a02",
+            "sourceColumn": "Asteroid_ID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Full_Name",
+            "dataType": "string",
+            "lineageTag": "dd784eab-2441-440b-9034-31e8a62baa86",
+            "sourceColumn": "Full_Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Orbit_Class",
+            "dataType": "string",
+            "lineageTag": "17190ddb-19c8-4233-b651-afdce9078305",
+            "sourceColumn": "Orbit_Class",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Orbit_Class_Label",
+            "dataType": "string",
+            "lineageTag": "70b82672-c39d-4e1a-924b-3a4c2e9e2dc3",
+            "sourceColumn": "Orbit_Class_Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PHA_Status",
+            "dataType": "string",
+            "lineageTag": "79e6ffb1-b2c1-4122-9581-1a5a98481c27",
+            "sourceColumn": "PHA_Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Actual_PHA",
+            "dataType": "int64",
+            "lineageTag": "f406f274-5d05-49d5-943e-2a816c304895",
+            "sourceColumn": "Actual_PHA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "q",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "d7f26744-88ad-414b-9624-a6df0ec88243",
+            "sourceColumn": "q",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "e",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "7f63e88a-f84b-4d47-ada2-0a8875f26a37",
+            "sourceColumn": "e",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "a",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "10801070-96aa-4f2c-8fad-469d6ddb45ad",
+            "sourceColumn": "a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "i",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "65e10888-eaa0-4d7d-bc46-b7d1e30e5874",
+            "sourceColumn": "i",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "diameter",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "f718bebe-b1eb-43fd-80cd-075a82ee2ce3",
+            "sourceColumn": "diameter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "albedo",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "9b00e70e-6825-40ae-89ad-49b61bdebf3b",
+            "sourceColumn": "albedo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Orbit_Region",
+            "dataType": "string",
+            "lineageTag": "e4da62e3-ebe8-4923-b7d8-296e2dc8fe08",
+            "sourceColumn": "Orbit_Region",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "eb38138c-adf1-4b65-a08c-c08d147146fa",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\asteroid_scatter_dataset.csv\"),[Delimiter=\",\", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Asteroid_ID\", type text}, {\"Full_Name\", type text}, {\"Orbit_Class\", type text}, {\"Orbit_Class_Label\", type text}, {\"PHA_Status\", type text}, {\"Actual_PHA\", Int64.Type}, {\"q\", type number}, {\"e\", type number}, {\"a\", type number}, {\"i\", type number}, {\"diameter\", type number}, {\"albedo\", type number}, {\"Orbit_Region\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Model_Benchmark",
+        "columns": [
+          {
+            "name": "Threshold",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "0f2eaf91-9625-4131-b5d8-5983e38b8ddf",
+            "sourceColumn": "Threshold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Accuracy",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "656d6e70-632e-418a-a876-f32cecca153e",
+            "sourceColumn": "Accuracy",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Precision",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "11766353-4f82-49b2-8451-556352b018f4",
+            "sourceColumn": "Precision",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PHA_Recall",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "80d1fec4-325b-4f49-98fb-41b5a3e2c62b",
+            "sourceColumn": "PHA_Recall",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "F1_Score",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "27a9d398-1ab1-4725-8fa3-5ab4fc444177",
+            "sourceColumn": "F1_Score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ROC_AUC",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "7b5128b6-0f6f-4457-a693-339b6d992a77",
+            "sourceColumn": "ROC_AUC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PR_AUC",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "fdb988ce-b11a-46d9-a3dd-864f4234a7ca",
+            "sourceColumn": "PR_AUC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "True_Negatives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "10da6d99-eb4b-413d-bd2c-5da9bc4cc2e1",
+            "sourceColumn": "True_Negatives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "False_Positives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "30247c1d-bc01-46d0-9247-378068dcc13e",
+            "sourceColumn": "False_Positives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "False_Negatives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "81b27f31-fac2-4379-b47f-8f405c5b4a25",
+            "sourceColumn": "False_Negatives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "True_Positives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "0fa9be9d-4f3f-4bde-aa16-4254262ce0ac",
+            "sourceColumn": "True_Positives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Model",
+            "dataType": "string",
+            "lineageTag": "12545005-4823-468f-92a7-21f0a8757904",
+            "sortByColumn": "Model_Sort_Order",
+            "sourceColumn": "Model",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Training_Time_sec",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "c1fea05f-25c5-4d44-a0e7-f1f9d2541ab1",
+            "sourceColumn": "Training_Time_sec",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Prediction_Time_sec",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "422a09f9-0fff-4063-b753-44af918786b4",
+            "sourceColumn": "Prediction_Time_sec",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Baseline_Accuracy",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "71b61f3e-e060-4e55-847a-3b0e1e5e2d52",
+            "sourceColumn": "Baseline_Accuracy",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Baseline_Precision",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "7e1fb7a2-8e6f-4465-97c3-afe07273045c",
+            "sourceColumn": "Baseline_Precision",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Baseline_PHA_Recall",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "acbe9212-a472-49f8-b173-e0c2be74bc14",
+            "sourceColumn": "Baseline_PHA_Recall",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Baseline_F1_Score",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "129988f8-dd0a-4ddf-ac3f-b083289b3b24",
+            "sourceColumn": "Baseline_F1_Score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Baseline_PR_AUC",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "9e0dd9ae-bb4e-4755-a6eb-995bd24d436e",
+            "sourceColumn": "Baseline_PR_AUC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Baseline_Mean_Confidence",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "4249f29e-3430-4e17-8030-132ff3906c7b",
+            "sourceColumn": "Baseline_Mean_Confidence",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Selected_Threshold",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "f6183e34-6377-4b1b-9cb8-6e7efee45844",
+            "sourceColumn": "Selected_Threshold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Validation_F1",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "dcaee295-350a-4b4d-92ec-90c5e5ce54ac",
+            "sourceColumn": "Validation_F1",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Total_Test_Records",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "7ff434d2-5c21-464e-87e4-3d30f39ce32a",
+            "sourceColumn": "Total_Test_Records",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Total_Actual_PHA",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "8f2755ad-43fb-4cfb-8986-ed211bc94468",
+            "sourceColumn": "Total_Actual_PHA",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Missed_PHA_Rate",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "b325870a-dd21-434e-9ff5-744e03bb598b",
+            "sourceColumn": "Missed_PHA_Rate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "False_Alarm_Rate",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "1281d021-f71a-4120-926d-fb16ba1720db",
+            "sourceColumn": "False_Alarm_Rate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Recall_Per_Train_Sec",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "f9f7fbd4-c5f7-4dc1-b317-c37a33830081",
+            "sourceColumn": "Recall_Per_Train_Sec",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "F1_Per_Train_Sec",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "77e1b747-6eb9-424a-9977-f7df23fb7b51",
+            "sourceColumn": "F1_Per_Train_Sec",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Model_Sort_Order",
+            "dataType": "int64",
+            "lineageTag": "948fb703-ceb1-4013-81cf-cc59ad43995f",
+            "sourceColumn": "Model_Sort_Order",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "9bdb4264-48db-4a19-b626-09003ba298d1",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\model_validation_benchmark.csv\"),[Delimiter=\",\", Columns=29, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Threshold\", type number}, {\"Accuracy\", type number}, {\"Precision\", type number}, {\"PHA_Recall\", type number}, {\"F1_Score\", type number}, {\"ROC_AUC\", type number}, {\"PR_AUC\", type number}, {\"True_Negatives\", Int64.Type}, {\"False_Positives\", Int64.Type}, {\"False_Negatives\", Int64.Type}, {\"True_Positives\", Int64.Type}, {\"Model\", type text}, {\"Training_Time_sec\", type number}, {\"Prediction_Time_sec\", type number}, {\"Baseline_Accuracy\", type number}, {\"Baseline_Precision\", type number}, {\"Baseline_PHA_Recall\", type number}, {\"Baseline_F1_Score\", type number}, {\"Baseline_PR_AUC\", type number}, {\"Baseline_Mean_Confidence\", type number}, {\"Selected_Threshold\", type number}, {\"Validation_F1\", type number}, {\"Total_Test_Records\", Int64.Type}, {\"Total_Actual_PHA\", Int64.Type}, {\"Missed_PHA_Rate\", type number}, {\"False_Alarm_Rate\", type number}, {\"Recall_Per_Train_Sec\", type number}, {\"F1_Per_Train_Sec\", type number}, {\"Model_Sort_Order\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Threshold_Sweep",
+        "columns": [
+          {
+            "name": "Model",
+            "dataType": "string",
+            "lineageTag": "afd6a1af-83a7-4121-93ad-752407ff1a34",
+            "sourceColumn": "Model",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Threshold",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "9a18db55-9971-447a-9a27-6370d04fc832",
+            "sourceColumn": "Threshold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Precision",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "e60874a8-6bb5-4eb9-a658-c06e83e4f55d",
+            "sourceColumn": "Precision",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PHA_Recall",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "da17c9c9-e384-448b-a094-e41a04c8e28d",
+            "sourceColumn": "PHA_Recall",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "F1_Score",
+            "dataType": "double",
+            "formatString": "0.0000",
+            "lineageTag": "bfb7d59c-1e27-48cd-8a19-a85345a8958d",
+            "sourceColumn": "F1_Score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "True_Negatives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "86dfb1dd-647d-4d6d-ba7c-a3c5135fb3b0",
+            "sourceColumn": "True_Negatives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "False_Positives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "4fd6fd9a-1518-48e8-b9ce-0fb84d9c45ae",
+            "sourceColumn": "False_Positives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "False_Negatives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "3a37910b-86b8-4eba-a754-f0c04c4448c1",
+            "sourceColumn": "False_Negatives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "True_Positives",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "c1be8b1d-0410-4414-b2f7-5f6f6e77c87d",
+            "sourceColumn": "True_Positives",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Is_Best_F1_Threshold",
+            "dataType": "boolean",
+            "lineageTag": "09fc7cd8-943e-43aa-a890-0bdac41a98b8",
+            "sourceColumn": "Is_Best_F1_Threshold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Total_Actual_PHA",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "0daaad1d-c6de-4ced-8ed8-2a46e18a04bd",
+            "sourceColumn": "Total_Actual_PHA",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Missed_PHA_Rate",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "1f5293d3-80c6-4cdd-9c93-22a592b9c84b",
+            "sourceColumn": "Missed_PHA_Rate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "False_Alarm_Rate",
+            "dataType": "double",
+            "formatString": "0.00%",
+            "lineageTag": "c40f6db1-73bf-4e81-a15f-55f7e3f6edde",
+            "sourceColumn": "False_Alarm_Rate",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "b75e4db9-8725-49b8-a37a-0649508a9ca9",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\threshold_sweep.csv\"),[Delimiter=\",\", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Model\", type text}, {\"Threshold\", type number}, {\"Precision\", type number}, {\"PHA_Recall\", type number}, {\"F1_Score\", type number}, {\"True_Negatives\", Int64.Type}, {\"False_Positives\", Int64.Type}, {\"False_Negatives\", Int64.Type}, {\"True_Positives\", Int64.Type}, {\"Is_Best_F1_Threshold\", type logical}, {\"Total_Actual_PHA\", Int64.Type}, {\"Missed_PHA_Rate\", type number}, {\"False_Alarm_Rate\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Confidence_Distribution",
+        "columns": [
+          {
+            "name": "Actual_PHA",
+            "dataType": "int64",
+            "lineageTag": "91f8aa5b-9f12-4a3b-8aff-28825361b457",
+            "sourceColumn": "Actual_PHA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Probability_Bin",
+            "dataType": "string",
+            "lineageTag": "7a604c8c-6110-4fdb-959d-e9f22772e8f5",
+            "sortByColumn": "Bin_Sort_Order",
+            "sourceColumn": "Probability_Bin",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Record_Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "5c27753f-de4c-4b1d-aafe-c7a3ce3e9606",
+            "sourceColumn": "Record_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Model",
+            "dataType": "string",
+            "lineageTag": "e3700728-4dee-4e98-9613-fdf51acd25e1",
+            "sourceColumn": "Model",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Actual_Class",
+            "dataType": "string",
+            "lineageTag": "f03c5611-c880-4592-9268-92e14bca246a",
+            "sourceColumn": "Actual_Class",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Bin_Sort_Order",
+            "dataType": "int64",
+            "lineageTag": "f1be01dc-a2d2-4150-b2e3-13f32ea34b5d",
+            "sourceColumn": "Bin_Sort_Order",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Class_Total",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "9b9dafd1-a089-40bb-9a09-bd63921ba30a",
+            "sourceColumn": "Class_Total",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Class_Share_Pct",
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "061cd7f6-663b-4298-ba16-dba48f9cf137",
+            "sourceColumn": "Class_Share_Pct",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "13d6ad78-97c7-4c5a-9534-d496fb95c69c",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\confidence_distribution.csv\"),[Delimiter=\",\", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Actual_PHA\", Int64.Type}, {\"Probability_Bin\", type text}, {\"Record_Count\", Int64.Type}, {\"Model\", type text}, {\"Actual_Class\", type text}, {\"Bin_Sort_Order\", Int64.Type}, {\"Class_Total\", Int64.Type}, {\"Class_Share_Pct\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Feature_Missingness",
+        "columns": [
+          {
+            "name": "Feature",
+            "dataType": "string",
+            "lineageTag": "70b15c1c-7094-4875-87b5-c742a7370ada",
+            "sortByColumn": "Missing_Rank",
+            "sourceColumn": "Feature",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "70f7e61b-b2d9-4a13-ab0c-2514eb8eb173",
+            "sourceColumn": "Missing_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Missing_Percentage",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "aa5dc8dc-7bf1-40a7-a75c-ff01e62fac77",
+            "sourceColumn": "Missing_Percentage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Share",
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "445e97a2-6153-4706-bc42-fb126b280b4c",
+            "sourceColumn": "Missing_Share",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Group",
+            "dataType": "string",
+            "lineageTag": "e8207f2f-c1e1-4955-9a38-9b90117a6059",
+            "sourceColumn": "Feature_Group",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Description",
+            "dataType": "string",
+            "lineageTag": "5122369e-e104-4a25-a89e-720caf13a3a8",
+            "sourceColumn": "Feature_Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Imputation_Note",
+            "dataType": "string",
+            "lineageTag": "37a57697-b55d-4a9a-9dc9-946bbc17c113",
+            "sourceColumn": "Imputation_Note",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Tier",
+            "dataType": "string",
+            "lineageTag": "2d60dbc5-cb81-4953-a505-17336d45e559",
+            "sourceColumn": "Missing_Tier",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Rank",
+            "dataType": "int64",
+            "lineageTag": "1027394f-045c-46a2-a604-a70286fd908f",
+            "sourceColumn": "Missing_Rank",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "036c6008-bc2f-4df6-90a6-7eda9564f36b",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\feature_missingness.csv\"),[Delimiter=\",\", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Feature\", type text}, {\"Missing_Count\", Int64.Type}, {\"Missing_Percentage\", type number}, {\"Missing_Share\", type number}, {\"Feature_Group\", type text}, {\"Feature_Description\", type text}, {\"Imputation_Note\", type text}, {\"Missing_Tier\", type text}, {\"Missing_Rank\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Feature_Missingness_Top",
+        "columns": [
+          {
+            "name": "Feature",
+            "dataType": "string",
+            "lineageTag": "08e48825-2854-40b8-99b6-14474a64f1db",
+            "sortByColumn": "Missing_Rank",
+            "sourceColumn": "Feature",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Count",
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "29f71b12-0127-4d30-9904-358f3c8a7392",
+            "sourceColumn": "Missing_Count",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Missing_Percentage",
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "a9364738-a1a5-433a-a5e3-c59e5aa6985c",
+            "sourceColumn": "Missing_Percentage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Share",
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "b7ee7154-cbd5-4b41-a06c-ffa82d624151",
+            "sourceColumn": "Missing_Share",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Group",
+            "dataType": "string",
+            "lineageTag": "5e6a0a95-edda-4244-80c8-8288b930f9b6",
+            "sourceColumn": "Feature_Group",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Description",
+            "dataType": "string",
+            "lineageTag": "cd45b2a0-c38d-4ec9-b563-35e27f3dc5c7",
+            "sourceColumn": "Feature_Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Imputation_Note",
+            "dataType": "string",
+            "lineageTag": "e67e958c-6c3e-498f-bffe-cd765a2d90ee",
+            "sourceColumn": "Imputation_Note",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Tier",
+            "dataType": "string",
+            "lineageTag": "e9d8b7f5-a58d-4877-9298-8953126ac59f",
+            "sourceColumn": "Missing_Tier",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Missing_Rank",
+            "dataType": "int64",
+            "lineageTag": "d1ec43b5-0527-4c39-9301-44de6931ab10",
+            "sourceColumn": "Missing_Rank",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "067872fc-933f-44ee-9e68-9634550fd92d",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\feature_missingness_top.csv\"),[Delimiter=\",\", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Feature\", type text}, {\"Missing_Count\", Int64.Type}, {\"Missing_Percentage\", type number}, {\"Missing_Share\", type number}, {\"Feature_Group\", type text}, {\"Feature_Description\", type text}, {\"Imputation_Note\", type text}, {\"Missing_Tier\", type text}, {\"Missing_Rank\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SHAP_Global_Importance",
+        "columns": [
+          {
+            "name": "Feature",
+            "dataType": "string",
+            "lineageTag": "bc21a7e8-3a0e-4eec-bcfd-352a7e0ac13f",
+            "sortByColumn": "Rank",
+            "sourceColumn": "Feature",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mean_Absolute_SHAP",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "866cc1d7-5e31-4061-85e7-d3e4d89da53c",
+            "sourceColumn": "Mean_Absolute_SHAP",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Rank",
+            "dataType": "int64",
+            "lineageTag": "f43a850c-213d-4713-b47e-cfca6e131ffd",
+            "sourceColumn": "Rank",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SHAP_Share_Pct",
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "77a5ce22-8367-4655-bdc4-0e258381caeb",
+            "sourceColumn": "SHAP_Share_Pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Group",
+            "dataType": "string",
+            "lineageTag": "98a22b23-25c3-4a5a-83c7-20089a842771",
+            "sourceColumn": "Feature_Group",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Description",
+            "dataType": "string",
+            "lineageTag": "c226f055-bbc3-469e-8102-493730fd8756",
+            "sourceColumn": "Feature_Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Display",
+            "dataType": "string",
+            "lineageTag": "2b65cdaf-8268-4e08-9540-f01ae3e0b7be",
+            "sortByColumn": "Rank",
+            "sourceColumn": "Feature_Display",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "7282d9be-03e9-4746-aec2-b17dc90fa9a4",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\shap_global_importance.csv\"),[Delimiter=\",\", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Feature\", type text}, {\"Mean_Absolute_SHAP\", type number}, {\"Rank\", Int64.Type}, {\"SHAP_Share_Pct\", type number}, {\"Feature_Group\", type text}, {\"Feature_Description\", type text}, {\"Feature_Display\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SHAP_Class_Comparison",
+        "columns": [
+          {
+            "name": "Class_Label",
+            "dataType": "string",
+            "lineageTag": "b8d48367-d566-4a0e-bd13-a32ea0754f0a",
+            "sourceColumn": "Class_Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Actual_PHA",
+            "dataType": "int64",
+            "lineageTag": "e686c664-b2fe-445e-bd6e-29fe9ac3af2c",
+            "sourceColumn": "Actual_PHA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature",
+            "dataType": "string",
+            "lineageTag": "003bce8b-d88b-4c1c-85e1-a95962a259a0",
+            "sourceColumn": "Feature",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Display",
+            "dataType": "string",
+            "lineageTag": "43a547c9-0d4f-4ad2-a234-21458f7846aa",
+            "sourceColumn": "Feature_Display",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Group",
+            "dataType": "string",
+            "lineageTag": "1a514b11-ed27-4902-91c0-4f0bdaac2dfc",
+            "sourceColumn": "Feature_Group",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Feature_Description",
+            "dataType": "string",
+            "lineageTag": "c3052f8a-a51a-4401-b856-4aea7684090a",
+            "sourceColumn": "Feature_Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mean_SHAP",
+            "dataType": "double",
+            "formatString": "+0.000;-0.000;0.000",
+            "lineageTag": "1ca1edd5-ab61-4611-ae38-b6dbde2dc6f5",
+            "sourceColumn": "Mean_SHAP",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "Mean_Abs_SHAP",
+            "dataType": "double",
+            "formatString": "0.000",
+            "lineageTag": "6a125e7d-c67f-4776-8d5e-0004bdd96014",
+            "sourceColumn": "Mean_Abs_SHAP",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "Sample_Count",
+            "dataType": "int64",
+            "lineageTag": "d9e0f395-b94c-4881-a307-5675c358e5c1",
+            "sourceColumn": "Sample_Count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Global_Rank",
+            "dataType": "int64",
+            "lineageTag": "1e8a2162-7acc-498e-adfd-52c882bcbb73",
+            "sourceColumn": "Global_Rank",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c1600a1f-c4cf-4759-b105-14a22d188459",
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\irons\\\\Downloads\\\\VDUI_Mini_Project-main\\\\VDUI_Mini_Project-main\\\\powerbi\\\\data\\\\shap_class_comparison.csv\"),[Delimiter=\",\", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Class_Label\", type text}, {\"Actual_PHA\", Int64.Type}, {\"Feature\", type text}, {\"Feature_Display\", type text}, {\"Feature_Group\", type text}, {\"Feature_Description\", type text}, {\"Mean_SHAP\", type number}, {\"Mean_Abs_SHAP\", type number}, {\"Sample_Count\", Int64.Type}, {\"Global_Rank\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Measures",
+        "columns": [
+          {
+            "name": "Dummy",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isHidden": true,
+            "lineageTag": "6855fa0d-b365-443a-a479-a40c7aed3399",
+            "sourceColumn": "Dummy",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "a7d74993-93f8-4b71-8a00-376491f2cd63",
+        "measures": [
+          {
+            "name": "Original Records",
+            "expression": "CALCULATE(SUM(Dataset_Profile[Count]), Dataset_Profile[Stage] = \"1. Original Raw Dataset\")",
+            "formatString": "#,0",
+            "lineageTag": "e8861005-8fcb-4529-9c9b-87415698ed1b"
+          },
+          {
+            "name": "Labeled Asteroids",
+            "expression": "SUM(Orbit_Class_Summary[Total_Asteroids])",
+            "formatString": "#,0",
+            "lineageTag": "48e1e32e-48ca-48d9-875c-e59175397567"
+          },
+          {
+            "name": "PHA Asteroids",
+            "expression": "SUM(Orbit_Class_Summary[PHA_Count])",
+            "formatString": "#,0",
+            "lineageTag": "ebe35b7f-237e-4ed2-b0e3-ffdfda11eef8"
+          },
+          {
+            "name": "PHA Breakdown Count",
+            "expression": "SUM(PHA_Orbit_Breakdown[PHA_Count])",
+            "formatString": "#,0",
+            "lineageTag": "75408560-f40f-465f-a513-4c53cbd976c3"
+          },
+          {
+            "name": "PHA Rate",
+            "expression": "DIVIDE([PHA Asteroids], [Labeled Asteroids], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "1bbef463-0922-4d2f-8edc-c0001f7e4c8e"
+          },
+          {
+            "name": "Plotted Asteroids",
+            "expression": "COUNTROWS(Asteroid_Catalog)",
+            "formatString": "#,0",
+            "lineageTag": "0403b197-bf32-4bb4-974b-a95df9c5fb1c"
+          },
+          {
+            "name": "Avg Perihelion q (AU)",
+            "expression": "AVERAGE(Asteroid_Catalog[q])",
+            "formatString": "0.000",
+            "lineageTag": "65ee0d2d-7e45-4c15-895b-887a451561c5"
+          },
+          {
+            "name": "Avg Eccentricity e",
+            "expression": "AVERAGE(Asteroid_Catalog[e])",
+            "formatString": "0.000",
+            "lineageTag": "10e91a50-12db-4565-ac5d-a8c12c6da555"
+          },
+          {
+            "name": "F1 Score",
+            "expression": "IF(HASONEVALUE(Model_Benchmark[Model]), SELECTEDVALUE(Model_Benchmark[F1_Score]), MAX(Model_Benchmark[F1_Score]))",
+            "formatString": "0.0000",
+            "lineageTag": "17eea362-e41a-457e-9e46-fc8764c03d52"
+          },
+          {
+            "name": "PHA Recall",
+            "expression": "IF(HASONEVALUE(Model_Benchmark[Model]), SELECTEDVALUE(Model_Benchmark[PHA_Recall]), MAX(Model_Benchmark[PHA_Recall]))",
+            "formatString": "0.00%",
+            "lineageTag": "b3b414a8-7146-4c04-a6b0-f94de6718b41"
+          },
+          {
+            "name": "Precision",
+            "expression": "AVERAGE(Model_Benchmark[Precision])",
+            "formatString": "0.0000",
+            "lineageTag": "38b96275-93ca-4b8e-ae30-df56d7db572e"
+          },
+          {
+            "name": "PR-AUC",
+            "expression": "AVERAGE(Model_Benchmark[PR_AUC])",
+            "formatString": "0.0000",
+            "lineageTag": "a6fa55ad-d7c1-4e0e-8d0f-4fb6ab3515c8"
+          },
+          {
+            "name": "Training Time (s)",
+            "expression": "IF(HASONEVALUE(Model_Benchmark[Model]), SELECTEDVALUE(Model_Benchmark[Training_Time_sec]), MIN(Model_Benchmark[Training_Time_sec]))",
+            "formatString": "0.00\" s\"",
+            "lineageTag": "201b8988-4e52-4511-842e-46464a5a9946"
+          },
+          {
+            "name": "Model Train Time (s)",
+            "expression": "AVERAGE(Model_Benchmark[Training_Time_sec])",
+            "formatString": "0.00",
+            "lineageTag": "393ec9b8-9799-42ac-8711-ca21374d2ce9"
+          },
+          {
+            "name": "Model PHA Recall",
+            "expression": "AVERAGE(Model_Benchmark[PHA_Recall])",
+            "formatString": "0.00%",
+            "lineageTag": "19e8bcc9-28f2-4a87-a5f6-978e2b1b57bf"
+          },
+          {
+            "name": "Missed PHAs (FN)",
+            "expression": "IF(HASONEVALUE(Model_Benchmark[Model]), SUM(Model_Benchmark[False_Negatives]), MIN(Model_Benchmark[False_Negatives]))",
+            "formatString": "#,0",
+            "lineageTag": "3a2cb7e3-b0e9-4c00-874c-63b87d8d1653"
+          },
+          {
+            "name": "False Alarms (FP)",
+            "expression": "IF(HASONEVALUE(Model_Benchmark[Model]), SUM(Model_Benchmark[False_Positives]), MIN(Model_Benchmark[False_Positives]))",
+            "formatString": "#,0",
+            "lineageTag": "77374549-04ab-4ed3-b16a-57a82249aa23"
+          },
+          {
+            "name": "Bar Missed PHAs (FN)",
+            "expression": "AVERAGE(Model_Benchmark[False_Negatives])",
+            "formatString": "#,0",
+            "lineageTag": "18d211fb-c9af-4577-96a6-5e7afb161219"
+          },
+          {
+            "name": "Bar False Alarms (FP)",
+            "expression": "AVERAGE(Model_Benchmark[False_Positives])",
+            "formatString": "#,0",
+            "lineageTag": "94fb7398-495f-4916-9490-aff2e52c6a92"
+          },
+          {
+            "name": "Missing Share",
+            "expression": "AVERAGE(Feature_Missingness[Missing_Share])",
+            "formatString": "0.0%",
+            "lineageTag": "63eefd68-765d-456b-9487-1dd9652e66e5"
+          },
+          {
+            "name": "Top Missing Share",
+            "expression": "AVERAGE(Feature_Missingness_Top[Missing_Share])",
+            "formatString": "0.0%",
+            "lineageTag": "bf8aac8b-4ba6-4ad0-90e4-6fbfe1dbae4c"
+          },
+          {
+            "name": "Peak F1 (In Range)",
+            "expression": "MAX(Threshold_Sweep[F1_Score])",
+            "formatString": "0.0000",
+            "lineageTag": "d09ba264-99d5-4b54-bd99-eb55f9967a4e"
+          },
+          {
+            "name": "Peak PHA Recall (In Range)",
+            "expression": "MAX(Threshold_Sweep[PHA_Recall])",
+            "formatString": "0.00%",
+            "lineageTag": "7e00b900-e5f3-4c34-94ce-fe04a16d1d74"
+          },
+          {
+            "name": "Avg Missed PHAs (FN)",
+            "expression": "AVERAGE(Threshold_Sweep[False_Negatives])",
+            "formatString": "#,0",
+            "lineageTag": "7f76dbd2-c6e5-44c2-ac85-65223a46063d"
+          },
+          {
+            "name": "Avg False Alarms (FP)",
+            "expression": "AVERAGE(Threshold_Sweep[False_Positives])",
+            "formatString": "#,0",
+            "lineageTag": "70e50cfc-75b3-45f8-98fc-bb1b22bed289"
+          },
+          {
+            "name": "Sweep F1 Score",
+            "expression": "AVERAGE(Threshold_Sweep[F1_Score])",
+            "formatString": "0.0000",
+            "lineageTag": "aba5fd3b-1575-4868-ac32-ef19ada2dc89"
+          },
+          {
+            "name": "Sweep PHA Recall",
+            "expression": "AVERAGE(Threshold_Sweep[PHA_Recall])",
+            "formatString": "0.00%",
+            "lineageTag": "2e54d94e-a5cc-4e01-8013-258d9686206b"
+          },
+          {
+            "name": "Sweep Precision",
+            "expression": "AVERAGE(Threshold_Sweep[Precision])",
+            "formatString": "0.0000",
+            "lineageTag": "14db5b0b-48be-4129-8225-35f416a084be"
+          },
+          {
+            "name": "Class Share (%)",
+            "expression": "AVERAGE(Confidence_Distribution[Class_Share_Pct])",
+            "formatString": "0.0%",
+            "lineageTag": "cebd8027-5f3b-44a8-83d1-560535b01ed5"
+          },
+          {
+            "name": "Top Feature SHAP",
+            "expression": "MAX(SHAP_Global_Importance[Mean_Absolute_SHAP])",
+            "formatString": "0.000",
+            "lineageTag": "f2109cd0-f326-4e4c-b6fb-73532b4e35b8"
+          },
+          {
+            "name": "Mean |SHAP|",
+            "expression": "SUM(SHAP_Global_Importance[Mean_Absolute_SHAP])",
+            "formatString": "0.000",
+            "lineageTag": "86495d47-ad2e-46f9-94e0-88239c73f1df"
+          },
+          {
+            "name": "Signed Mean SHAP",
+            "expression": "AVERAGE(SHAP_Class_Comparison[Mean_SHAP])",
+            "formatString": "+0.000;-0.000;0.000",
+            "lineageTag": "58bdd71b-aa37-490b-8f2f-868f4ea045e4"
+          },
+          {
+            "name": "Orbital SHAP Share",
+            "expression": "CALCULATE(SUM(SHAP_Global_Importance[SHAP_Share_Pct]), SHAP_Global_Importance[Feature_Group] = \"Orbital\")",
+            "formatString": "0.0%",
+            "lineageTag": "dcd8e962-fbaa-477c-b024-5631b64e765b"
+          },
+          {
+            "name": "Uncertainty SHAP Share",
+            "expression": "CALCULATE(SUM(SHAP_Global_Importance[SHAP_Share_Pct]), SHAP_Global_Importance[Feature_Group] = \"Uncertainty\")",
+            "formatString": "0.0%",
+            "lineageTag": "fe3aa9fb-142d-46c5-9d13-495641acad0d"
+          },
+          {
+            "name": "Balanced SHAP Sample",
+            "expression": "620",
+            "formatString": "#,0",
+            "lineageTag": "25fbb6fd-5a69-4ff4-b9bb-40bf6a783f4a"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "expression": "let Source = #table({\"Dummy\"}, {{1}}) in Source",
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

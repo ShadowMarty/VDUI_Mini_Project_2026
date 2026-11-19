@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Asteroid_Prediction_Analytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "301a180f-d6b0-4aaa-aa51-80f972f4ee05"
+  }
+}

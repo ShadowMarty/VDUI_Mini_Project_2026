@@ -1,0 +1,51 @@
+Class_Label,Actual_PHA,Feature,Feature_Display,Feature_Group,Feature_Description,Mean_SHAP,Mean_Abs_SHAP,Sample_Count,Global_Rank
+Non-PHA (Safe),0,q,q (Perihelion),Orbital,Perihelion distance (AU),-6.725255227419357,6.8477568545161285,310,1
+PHA (Hazardous),1,q,q (Perihelion),Orbital,Perihelion distance (AU),3.4743610732258063,3.4743610732258063,310,1
+Non-PHA (Safe),0,e,e (Eccentricity),Orbital,Orbital eccentricity,-1.3963366210645163,1.4295651903548388,310,2
+PHA (Hazardous),1,e,e (Eccentricity),Orbital,Orbital eccentricity,0.41341642399032247,0.7099559839967742,310,2
+Non-PHA (Safe),0,sigma_i,sigma_i (Incl. Unc.),Uncertainty,Inclination 1-sigma uncertainty,0.18244480958064516,0.26623612198064517,310,3
+PHA (Hazardous),1,sigma_i,sigma_i (Incl. Unc.),Uncertainty,Inclination 1-sigma uncertainty,0.5873926479,0.6851010413387096,310,3
+Non-PHA (Safe),0,sigma_e,sigma_e (Ecc. Unc.),Uncertainty,Eccentricity 1-sigma uncertainty,0.13927410736225806,0.23333679650741937,310,4
+PHA (Hazardous),1,sigma_e,sigma_e (Ecc. Unc.),Uncertainty,Eccentricity 1-sigma uncertainty,0.5923022802903226,0.6633215475935484,310,4
+Non-PHA (Safe),0,ad,ad (Aphelion),Orbital,Aphelion distance (AU),-0.37824354353225803,0.3898298460161291,310,5
+PHA (Hazardous),1,ad,ad (Aphelion),Orbital,Aphelion distance (AU),-0.003082556208903225,0.18812141596529033,310,5
+Non-PHA (Safe),0,sigma_w,sigma_w (Arg.P Unc.),Uncertainty,Argument of perihelion 1-sigma uncertainty,-0.21712421714838712,0.21712421714838712,310,6
+PHA (Hazardous),1,sigma_w,sigma_w (Arg.P Unc.),Uncertainty,Argument of perihelion 1-sigma uncertainty,-0.3141911545129032,0.3162909441193548,310,6
+Non-PHA (Safe),0,sigma_om,sigma_om (Node Unc.),Uncertainty,Ascending node 1-sigma uncertainty,-0.16686655843258064,0.17611217909774196,310,7
+PHA (Hazardous),1,sigma_om,sigma_om (Node Unc.),Uncertainty,Ascending node 1-sigma uncertainty,-0.2863505900583226,0.3311762360157419,310,7
+Non-PHA (Safe),0,n,n (Mean Motion),Orbital,Mean motion (deg/day),-0.2803327966432097,0.28938109315550004,310,8
+PHA (Hazardous),1,n,n (Mean Motion),Orbital,Mean motion (deg/day),0.11133956017064517,0.17222086099387096,310,8
+Non-PHA (Safe),0,a,a (Semi-Major Axis),Orbital,Semi-major axis (AU),-0.323486277043871,0.32702867943096775,310,9
+PHA (Hazardous),1,a,a (Semi-Major Axis),Orbital,Semi-major axis (AU),0.02638872431387097,0.1300503029887097,310,9
+Non-PHA (Safe),0,i,i (Inclination),Orbital,Orbital inclination (deg),-0.25876921437564515,0.2635688873766129,310,10
+PHA (Hazardous),1,i,i (Inclination),Orbital,Orbital inclination (deg),-0.0994716587666129,0.19304603907125806,310,10
+Non-PHA (Safe),0,sigma_ma,sigma_ma (Anomaly Unc.),Uncertainty,Mean anomaly 1-sigma uncertainty,-0.17004730090645162,0.17004730090645162,310,11
+PHA (Hazardous),1,sigma_ma,sigma_ma (Anomaly Unc.),Uncertainty,Mean anomaly 1-sigma uncertainty,-0.16526462273903225,0.17344235070225805,310,11
+Non-PHA (Safe),0,w,w (Arg. Perihelion),Orbital,Argument of perihelion (deg),-0.13909287437580645,0.15526083889193548,310,12
+PHA (Hazardous),1,w,w (Arg. Perihelion),Orbital,Argument of perihelion (deg),-0.14324046024720322,0.17991350689344193,310,12
+Non-PHA (Safe),0,sigma_q,sigma_q (Perih. Unc.),Uncertainty,Perihelion distance 1-sigma uncertainty,-0.06624271412516129,0.09688532453548387,310,13
+PHA (Hazardous),1,sigma_q,sigma_q (Perih. Unc.),Uncertainty,Perihelion distance 1-sigma uncertainty,0.10639064878419353,0.23378998401129036,310,13
+Non-PHA (Safe),0,sigma_n,sigma_n (Motion Unc.),Uncertainty,Mean motion 1-sigma uncertainty,-0.053607367147548386,0.07073683220522581,310,14
+PHA (Hazardous),1,sigma_n,sigma_n (Motion Unc.),Uncertainty,Mean motion 1-sigma uncertainty,-0.05194998463516129,0.15557788068290324,310,14
+Non-PHA (Safe),0,om,om (Asc. Node),Orbital,Longitude of ascending node (deg),-0.06759303969970967,0.07750017105080645,310,15
+PHA (Hazardous),1,om,om (Asc. Node),Orbital,Longitude of ascending node (deg),-0.1020224877778387,0.13260422288299997,310,15
+Non-PHA (Safe),0,per,per (Period Days),Orbital,Orbital period (days),-0.07551755030258064,0.07853528588,310,16
+PHA (Hazardous),1,per,per (Period Days),Orbital,Orbital period (days),0.07220205570741935,0.08948017266161291,310,16
+Non-PHA (Safe),0,ma,ma (Mean Anomaly),Orbital,Mean anomaly (deg),-0.058297631945193544,0.05924694217887098,310,17
+PHA (Hazardous),1,ma,ma (Mean Anomaly),Orbital,Mean anomaly (deg),-0.09686585154306451,0.10484681446854842,310,17
+Non-PHA (Safe),0,sigma_ad,sigma_ad (Aphel. Unc.),Uncertainty,Aphelion distance 1-sigma uncertainty,-0.05792381362290323,0.05810449449709677,310,18
+PHA (Hazardous),1,sigma_ad,sigma_ad (Aphel. Unc.),Uncertainty,Aphelion distance 1-sigma uncertainty,-0.09817635911290322,0.09945710323290322,310,18
+Non-PHA (Safe),0,sigma_per,sigma_per (Period Unc.),Uncertainty,Orbital period 1-sigma uncertainty,-0.06627775018064516,0.06627775018064516,310,19
+PHA (Hazardous),1,sigma_per,sigma_per (Period Unc.),Uncertainty,Orbital period 1-sigma uncertainty,-0.08377596966714516,0.08448411089156452,310,19
+Non-PHA (Safe),0,sigma_a,sigma_a (Axis Unc.),Uncertainty,Semi-major axis 1-sigma uncertainty,-0.05854512445119355,0.060454517606032265,310,20
+PHA (Hazardous),1,sigma_a,sigma_a (Axis Unc.),Uncertainty,Semi-major axis 1-sigma uncertainty,-0.04873174937516129,0.061268371415161296,310,20
+Non-PHA (Safe),0,albedo,albedo (Reflectivity),Physical,Geometric albedo,-0.01952004255575774,0.019627168279000323,310,21
+PHA (Hazardous),1,albedo,albedo (Reflectivity),Physical,Geometric albedo,-0.03084052878379032,0.032317023715758064,310,21
+Non-PHA (Safe),0,missingindicator_diameter_sigma,miss_diameter_sigma,Missingness Indicator,Missing indicator for diameter_sigma,0.0011348758610322581,0.004653746466516129,310,22
+PHA (Hazardous),1,missingindicator_diameter_sigma,miss_diameter_sigma,Missingness Indicator,Missing indicator for diameter_sigma,0.00188927183536129,0.0066405654225096785,310,22
+Non-PHA (Safe),0,diameter_sigma,diameter_sigma (km),Physical,Diameter uncertainty (km),0.00021167354614258065,0.001138809954848387,310,23
+PHA (Hazardous),1,diameter_sigma,diameter_sigma (km),Physical,Diameter uncertainty (km),-0.002878648642907741,0.003908851988537419,310,23
+Non-PHA (Safe),0,diameter,diameter (km),Physical,Asteroid diameter (km),-0.00031390660446129035,0.0006724046088096775,310,24
+PHA (Hazardous),1,diameter,diameter (km),Physical,Asteroid diameter (km),-0.002460674135310322,0.0034433858498522578,310,24
+Non-PHA (Safe),0,missingindicator_albedo,miss_albedo,Missingness Indicator,Missing indicator for albedo,-0.0010903941516387098,0.0011743375681225808,310,25
+PHA (Hazardous),1,missingindicator_albedo,miss_albedo,Missingness Indicator,Missing indicator for albedo,-0.0006613605898709678,0.0007367105639354839,310,25

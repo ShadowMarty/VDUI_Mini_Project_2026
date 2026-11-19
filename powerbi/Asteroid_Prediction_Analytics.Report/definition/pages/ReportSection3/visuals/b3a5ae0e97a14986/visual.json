@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "b3a5ae0e97a14986",
+  "position": {
+    "x": 32.03568790463914,
+    "y": 0,
+    "z": 0,
+    "height": 46.273771417812085,
+    "width": 875.64213606013641
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Threshold Dynamics & Confidence Calibration",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13.5pt",
+                      "color": "#0f172a",
+                      "fontFamily": "Segoe UI"
+                    }
+                  },
+                  {
+                    "value": "   ·   Interactive Sweep (0.01–0.99) & Class-Normalized Probabilities",
+                    "textStyle": {
+                      "fontSize": "9.5pt",
+                      "color": "#64748b",
+                      "fontFamily": "Segoe UI"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
